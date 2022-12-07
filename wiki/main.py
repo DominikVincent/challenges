@@ -12,6 +12,8 @@ from pywebio.input import input, FLOAT, textarea, radio, actions
 from pywebio.output import put_text, put_markdown, put_image, use_scope, put_button
 from pywebio.session import set_env
 
+import json
+
 """
 Queries webpage and returns it
 
@@ -35,7 +37,10 @@ def random_webpage():
     # soup = query_webpage('https://en.wikipedia.org/wiki/Asakent')
     # soup = query_webpage('https://en.wikipedia.org/wiki/Criollas_de_Caguas')
     # soup = query_webpage('https://en.wikipedia.org/wiki/Jean_Paul')
-    return soup
+
+    title = soup.find('title').contents[0]
+    source = json.dump(requests.get(f"https://en.wikipedia.org/w/api.php?action=query&prop=revisions&titles={title}&rvslots=*&rvprop=content&formatversion=2&format=json"))
+    return soup, source
 
 def get_image(image_url: str):
     # Open the url image, set stream to True, this will return the stream content.
@@ -80,9 +85,7 @@ def show_images(images):
 
 
 def extract_images(soup):
-    # Extract the images
-    # divs = [div for div in soup.find_all('div', {'class': 'thumb tright'})],
-    # images = [img['src'] for img in divs.find_all('img')]
+    # Extract the image urls and alt texts and the corresponding location
     images = [{"src": img['src'], "alt": img['alt']} for img in soup.find_all('img')]
 
     # TODO consider removing duplicates. But what is a duplicate alt texts are context dependent so the same src file
@@ -105,13 +108,32 @@ def extract_images(soup):
     return image_urls, title
 
 
+def update_wikitext_alt(wikitext, image_url, alt_text):
+    # Search for image_url in wikitext and update the alt in the wiki
+    image_name = re.findall(r'.*?/\d+px-(.*)', image_url)
+    # TODO handle multiple ocurrences
+    image_name = image_name[0].replace('_', ' ')
+
+    # Now find the first occurance of the image name in the wikitext
+    res = re.search(r".*?\[\[File:"+image_name+r"\s*\|(.*?)\]\]", wikitext, flags=re.IGNORECASE)
+    if "alt" in res.group(0):
+        # Handle replacement
+        alt_pos = re.search(r".*?|\s*alt=.*?[\]\|]", wikitext, flags=re.IGNORECASE)
+
+        pass
+    else:
+        # Add new alt element
+        wikitext = wikitext[:res.end()-2] + f"|alt={alt_text}" + wikitext[res.end()-2:]
+
+    return wikitext
+
 
 def user_updates():
     set_env(title="Alt Text Tool")
 
     finished = False
     while not finished:
-        soup = random_webpage()
+        soup, wikitext = random_webpage()
 
         images, title = extract_images(soup)
         print("title: ", title)
@@ -128,6 +150,8 @@ def user_updates():
                         put_text("The image has no alt text please add it.")
                         text = input('Alt Text', rows=3, placeholder='Add the alt text here')
                         image["alt"] = text
+
+                        wikitext = update_wikitext_alt(wikitext, image["src"], image["alt"])
                     else:
                         put_text(f"Current alt text is: '{image['alt']}'. Do you think that fits?")
                         answer = actions('Does the alt text fit?', [{"label":'Yes', "value": True, "color":"primary"},
@@ -135,6 +159,8 @@ def user_updates():
                         if not answer:
                             text = input('Suggest New Alt Text', rows=3, placeholder='Add the alt text here')
                             image["alt"] = text
+                            wikitext = update_wikitext_alt(wikitext, image["src"], image["alt"])
+
 
             print(images)
             finished = actions("Current wiki page done. Do you want to fix another.", [{"label":'Yes', "value": False, "color":"primary"},
