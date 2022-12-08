@@ -29,25 +29,34 @@ def query_webpage(webpage: str) -> str:
 
     # Parse the HTML
     soup = BeautifulSoup(page.content, 'html.parser')
-    return soup
+    return soup, page.url
 
 
 def random_webpage():
-    soup = query_webpage('https://en.wikipedia.org/wiki/Special:Random')
+    # soup = query_webpage('https://en.wikipedia.org/wiki/Special:Random')
     # soup = query_webpage('https://en.wikipedia.org/wiki/Asakent')
     # soup = query_webpage('https://en.wikipedia.org/wiki/Criollas_de_Caguas')
-    # soup = query_webpage('https://en.wikipedia.org/wiki/Jean_Paul')
+    soup, url = query_webpage('https://en.wikipedia.org/wiki/Jean_Paul')
 
-    title = soup.find('title').contents[0]
-    source = json.dump(requests.get(f"https://en.wikipedia.org/w/api.php?action=query&prop=revisions&titles={title}&rvslots=*&rvprop=content&formatversion=2&format=json"))
-    return soup, source
+    title = url.split("/")[-1]
+    # TODO use nicer alternative: https://en.wikipedia.org/w/index.php?title=Google&action=raw
+    wikitext = requests.get(
+        f"https://en.wikipedia.org/w/api.php?action=query&prop=revisions&titles={title}&rvslots=*&rvprop=content&formatversion=2&format=json")
+    images_raw = requests.get(
+        f"https://en.wikipedia.org/w/api.php?action=query&titles={title}&generator=images&gimlimit=10&prop=imageinfo&iiprop=url|dimensions|mime&format=json")
+    try:
+        source = json.loads(wikitext.content.decode("utf-8"))["query"]["pages"][0]["revisions"][0]["slots"]["main"]["content"]
+        images = json.loads(images_raw.content.decode("utf-8"))["query"]["pages"]
+    except:
+        return soup, None
+    return soup, source, images
+
 
 def get_image(image_url: str):
     # Open the url image, set stream to True, this will return the stream content.
-    query_url = "http:"+image_url
+    query_url = "http:" + image_url
     print(query_url)
-    r = requests.get(query_url, headers={'User-Agent' : "Magic Browser"})
-
+    r = requests.get(query_url, headers={'User-Agent': "Magic Browser"})
 
     # Check if the image was retrieved successfully
     if r.status_code == 200:
@@ -67,6 +76,8 @@ def get_image(image_url: str):
 """
 Expects lists of image urls. Then plots all images with their corresponding url text
 """
+
+
 def show_images(images):
     if len(images) == 0:
         return
@@ -107,23 +118,44 @@ def extract_images(soup):
 
     return image_urls, title
 
+def get_all_matches(wikitext: str, filename: str) -> re.Match:
+    filename = re.escape(filename)
 
-def update_wikitext_alt(wikitext, image_url, alt_text):
+    return re.finditer(r"\[\[File:" + filename + r"\s*\|(?P<match>(.*?(?:\[\[.*?\]\])*.*?)*)\]\]", wikitext,
+                          flags=re.IGNORECASE)
+def update_wikitext_alt(wikitext: str, image_url: str, alt_text: str, index: int=-1):
+    """
+    Updates the images with the provided url to a given alttext. If Index = -1 all alt texts are replaced. If Index is
+    provided only the index alt text.
+    :param wikitext: The sourcecode of the wikipage
+    :param image_url: The url of the image which should get an alt text added.
+    :param alt_text: The new alt text for that image.
+    :param index: The index of the altext to be updated in the wikitext if several matches exist. -1 for all.
+    :return: updated wikitext
+    """
+
     # Search for image_url in wikitext and update the alt in the wiki
     image_name = re.findall(r'.*?/\d+px-(.*)', image_url)
     # TODO handle multiple ocurrences
     image_name = image_name[0].replace('_', ' ')
+    image_name = re.escape(image_name)
 
-    # Now find the first occurance of the image name in the wikitext
-    res = re.search(r".*?\[\[File:"+image_name+r"\s*\|(.*?)\]\]", wikitext, flags=re.IGNORECASE)
-    if "alt" in res.group(0):
-        # Handle replacement
-        alt_pos = re.search(r".*?|\s*alt=.*?[\]\|]", wikitext, flags=re.IGNORECASE)
+    # Now find all occurances of File embeddings in the wikitext
+    # The group "match" contains everything after the "[[File:file_name|" to "]]"
+    res_all = re.finditer(r"\[\[File:" + image_name + r"\s*\|(?P<match>(.*?(?:\[\[.*?\]\])*.*?)*)\]\]", wikitext,
+                          flags=re.IGNORECASE)
 
-        pass
-    else:
-        # Add new alt element
-        wikitext = wikitext[:res.end()-2] + f"|alt={alt_text}" + wikitext[res.end()-2:]
+    # Replace or overwrite the alt text(s)
+    for i, image_src_match in enumerate(res_all):
+        if index == -1 or index == i:
+            if "alt" in image_src_match.group("match"):
+                # Handle replacement
+                alt_pos_match = re.search(r"\|\s*alt=(.*?)[\]\|]", image_src_match.group(1), flags=re.IGNORECASE)
+                wikitext = wikitext[:image_src_match.start(1) + alt_pos_match.start(1)] + alt_text + \
+                           wikitext[image_src_match.start(1) + alt_pos_match.end(1)]
+            else:
+                # Add new alt element
+                wikitext = wikitext[:image_src_match.end(1)] + f"|alt={alt_text}" + wikitext[image_src_match.end(1):]
 
     return wikitext
 
@@ -133,38 +165,46 @@ def user_updates():
 
     finished = False
     while not finished:
-        soup, wikitext = random_webpage()
+        soup, wikitext, images = random_webpage()
 
-        images, title = extract_images(soup)
+        _, title = extract_images(soup)
         print("title: ", title)
         with use_scope('wikipage', clear=True):
             put_markdown(f'# Alt Text Update Tool: {title}')
 
-            for image in images:
+            for i, image in enumerate(images.values()):
                 with use_scope("image", clear=True):
-                    put_markdown('## Please add alt text')
+                    put_markdown(f'## Please add alt text for: {image["title"].split(".")[-2].split(":")[-1]}')
 
-                    put_image(image["src"])
-
-                    if image["alt"] == "":
-                        put_text("The image has no alt text please add it.")
-                        text = input('Alt Text', rows=3, placeholder='Add the alt text here')
-                        image["alt"] = text
-
-                        wikitext = update_wikitext_alt(wikitext, image["src"], image["alt"])
-                    else:
-                        put_text(f"Current alt text is: '{image['alt']}'. Do you think that fits?")
-                        answer = actions('Does the alt text fit?', [{"label":'Yes', "value": True, "color":"primary"},
-                                                                    {"label":'No', "value": False, "color":"warning"}])
-                        if not answer:
-                            text = input('Suggest New Alt Text', rows=3, placeholder='Add the alt text here')
-                            image["alt"] = text
-                            wikitext = update_wikitext_alt(wikitext, image["src"], image["alt"])
+                    put_image(image["imageinfo"][0]["url"], height="400px")
 
 
+
+
+                    answer = actions('Does the alt text fit?', [{"label": 'Yes', "value": True, "color": "primary"},
+                                                                {"label": 'No', "value": False,
+                                                                 "color": "warning"}])
+
+                    # if image["alt"] == "":
+                    #     put_text("The image has no alt text please add it.")
+                    #     text = input('Alt Text', rows=3, placeholder='Add the alt text here')
+                    #     image["alt"] = text
+                    #
+                    #     wikitext = update_wikitext_alt(wikitext, image["src"], image["alt"])
+                    # else:
+                    #     put_text(f"Current alt text is: '{image['alt']}'. Do you think that fits?")
+                    #     answer = actions('Does the alt text fit?', [{"label": 'Yes', "value": True, "color": "primary"},
+                    #                                                 {"label": 'No', "value": False,
+                    #                                                  "color": "warning"}])
+                    #     if not answer:
+                    #         text = input('Suggest New Alt Text', rows=3, placeholder='Add the alt text here')
+                    #         image["alt"] = text
+                    #         wikitext = update_wikitext_alt(wikitext, image["src"], image["alt"])
+                print(wikitext)
             print(images)
-            finished = actions("Current wiki page done. Do you want to fix another.", [{"label":'Yes', "value": False, "color":"primary"},
-                                                                    {"label":'No', "value": True, "color":"warning"}])
+            finished = actions("Current wiki page done. Do you want to fix another.",
+                               [{"label": 'Yes', "value": False, "color": "primary"},
+                                {"label": 'No', "value": True, "color": "warning"}])
             print("finished: ", finished)
 
     with use_scope('wikipage', clear=True):
@@ -172,14 +212,11 @@ def user_updates():
 
 
 def main():
-
     soup = random_webpage()
 
     images, title = extract_images(soup)
 
     show_images(images)
-
-
 
 
 # Press the green button in the gutter to run the script.
