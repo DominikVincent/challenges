@@ -1,3 +1,6 @@
+import hashlib
+import urllib.parse
+from datetime import datetime
 import io
 import json
 import re
@@ -31,8 +34,8 @@ def query_webpage(webpage: str) -> str:
 
 
 def random_webpage():
-    soup, url = query_webpage('https://en.wikipedia.org/wiki/Special:Random')
-    # soup, url = query_webpage('https://en.wikipedia.org/wiki/Ritual')
+    # soup, url = query_webpage('https://en.wikipedia.org/wiki/Special:Random')
+    soup, url = query_webpage('https://en.wikipedia.org/wiki/Ritual')
     # soup, url = query_webpage('https://en.wikipedia.org/wiki/Djamin_Ginting')
     # soup, url = query_webpage('https://en.wikipedia.org/wiki/New_York_State_Route_118')
     # soup, url = query_webpage('https://en.wikipedia.org/wiki/Ty_Tabor')
@@ -45,22 +48,28 @@ def random_webpage():
     title = url.split("/")[-1]
     # TODO use nicer alternative: https://en.wikipedia.org/w/index.php?title=Google&action=raw
     wikitext = requests.get(
-        f"https://en.wikipedia.org/w/api.php?action=query&prop=revisions&titles={title}&rvslots=*&rvprop=content&formatversion=2&format=json")
+        f"https://en.wikipedia.org/w/api.php?action=query&prop=revisions&titles={title}&rvslots=*&rvprop=ids|timestamp|content&formatversion=2&format=json&curtimestamp=true")
     images_raw = requests.get(
         f"https://en.wikipedia.org/w/api.php?action=query&titles={title}&generator=images&gimlimit=10&prop=imageinfo&iiprop=url|dimensions|mime&format=json")
 
+    test = json.loads(wikitext.content.decode("utf-8"))["query"]
     # TODO investigate why the images json response is sometimes empty, e.g. 2020_WNBL_season
     try:
-        source = json.loads(wikitext.content.decode("utf-8"))["query"]["pages"][0]["revisions"][0]["slots"]["main"][
-            "content"]
+        query = json.loads(wikitext.content.decode("utf-8"))["query"]
+        source = query["pages"][0]["revisions"][0]["slots"]["main"]["content"]
         images = json.loads(images_raw.content.decode("utf-8"))["query"]["pages"]
+        meta = {
+            "title": title,
+            "revid": query["pages"][0]["revisions"][0]["revid"],
+            "timestamp": query["pages"][0]["revisions"][0]["timestamp"],
+        }
+
     except KeyError:
         print("experienced Keyerror")
-        return soup, None, None
-    except:
-        return soup, None, None
+        return soup, None, None, None
 
-    return soup, source, images
+
+    return soup, source, images, meta
 
 
 def get_title(soup):
@@ -107,6 +116,38 @@ def get_alt_text(match):
         return alt_pos_match.group(1)
     return ""
 
+def query_token() -> str:
+    token_resp = requests.get(
+        f"https://en.wikipedia.org/w/api.php?action=query&meta=tokens&type=csrf&format=json")
+    token_resp = json.loads(token_resp.content.decode("utf-8"))
+    return token_resp["query"]["tokens"]["csrftoken"]
+def send_edit_update(wikitext: str, meta: dict):
+    today = datetime.now()
+    iso_date = today.isoformat()
+
+    wikitext_utf_8 = wikitext.encode('utf-8')
+    req = {
+        "title": meta["title"],
+        "text": wikitext_utf_8,
+        "summary": "add alt field info. Done via alt tool.",
+        "minor": True,
+        "bot": True,
+        "baserevid": meta["revid"],
+        "basetimestamp": meta["timestamp"],
+        "starttimestamp": iso_date,
+        "nocreate": True,
+        "md5": hashlib.md5(wikitext_utf_8).hexdigest(),
+        "contentformat": "unknown/unknown",
+        "contentmodel": "wikitext",
+        "token": query_token()
+    }
+
+    url = urllib.parse.urlencode(req)
+    print(url)
+    # resp = requests.post(f"https://en.wikipedia.org/w/api.php?api.php?action=edit&{url}")
+    resp = requests.post(f"https://test.wikipedia.org/w/api.php?action=edit&{url}")
+    print(resp)
+    return False
 
 def user_updates():
     set_env(title="Alt Text Tool")
@@ -114,7 +155,7 @@ def user_updates():
     finished = False
     while not finished:
 
-        soup, wikitext, images = random_webpage()
+        soup, wikitext, images, meta = random_webpage()
         if wikitext is None or images is None:
             continue
         # Ensure that random wikipage has images
@@ -159,6 +200,12 @@ def user_updates():
                 continue
 
             print(wikitext)
+            while not send_edit_update(wikitext, meta):
+                if not actions('Sending the updates to Wikipedia failed. Try Again?',
+                                 [{"label": 'Yes', "value": True, "color": "primary"},
+                                  {"label": 'No', "value": False,
+                                   "color": "warning"}]):
+                    break
             finished = actions("Current wiki page done. Do you want to fix another.",
                                [{"label": 'Yes', "value": False, "color": "primary"},
                                 {"label": 'No', "value": True, "color": "warning"}])
