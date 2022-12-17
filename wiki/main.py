@@ -5,6 +5,7 @@ import io
 import json
 import re
 from typing import Iterator, Match
+from html import escape
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -100,7 +101,6 @@ def random_webpage():
         print("experienced Keyerror")
         return title, None, None, None
 
-
     return title, source, images, meta
 
 
@@ -148,12 +148,25 @@ def get_alt_text(match):
         return alt_pos_match.group(1)
     return ""
 
+
 def get_csrf_token(session, login_token) -> str:
-    csrf_params = {
+    login_params = {
         "action": "login",
-        "lgname": "bot_user_name",
-        "lgpassword": "bot_password",
+        "lgname": BOT_NAME,
+        "lgpassword": BOT_PASSWORD,
         "lgtoken": login_token,
+        "format": "json"
+    }
+
+    # Login here
+    resp = session.post(url=API_URL, data=login_params)
+    data = resp.json()
+    if data["login"]["result"] != "Success":
+        return ""
+
+    csrf_params = {
+        "action": "query",
+        "meta": "tokens",
         "format": "json"
     }
 
@@ -163,6 +176,7 @@ def get_csrf_token(session, login_token) -> str:
     csrf_token = data['query']['tokens']['csrftoken']
 
     return csrf_token
+
 
 def get_login_token(session):
     """
@@ -190,11 +204,13 @@ def send_edit_update(wikitext: str, meta: dict):
     login_token = get_login_token(session)
 
     csrf_token = get_csrf_token(session, login_token)
+    if csrf_token == "":
+        return False
 
     today = datetime.now()
     iso_date = today.isoformat()
 
-    wikitext_utf_8 = wikitext.encode('utf-8')
+    wikitext_utf_8 = escape(wikitext)
     edit_params = {
         "action": "edit",
         "title": meta["title"],
@@ -206,18 +222,20 @@ def send_edit_update(wikitext: str, meta: dict):
         "basetimestamp": meta["timestamp"],
         "starttimestamp": iso_date,
         "nocreate": True,
-        "md5": hashlib.md5(wikitext_utf_8).hexdigest(),
-        "contentformat": "unknown/unknown",
-        "contentmodel": "wikitext",
+        # TODO use hashsum
+        # "md5": hashlib.md5(wikitext_utf_8).hexdigest(),
+        # TODO figure out what this has to be set to if used.
+        # "contentformat": "text/plain",
+        # "contentmodel": "wikitext",
         "token": csrf_token,
         "format": "json",
     }
 
     resp = session.post(API_URL, data=edit_params)
-    print(resp)
+    if not resp.ok:
+        return False
     resp_json = resp.json()
-    print(resp_json)
-    return resp.status_code == 200, resp_json
+    return "error" not in resp_json
 
 def user_updates():
     set_env(title="Alt Text Tool")
