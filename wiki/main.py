@@ -16,6 +16,11 @@ from pywebio.output import put_markdown, put_image, use_scope, put_text
 from pywebio.session import set_env
 from more_itertools import peekable
 
+# API_URL = "https://test.wikipedia.org/w/api.php"
+API_URL = "https://en.wikipedia.org/w/api.php"
+
+BOT_NAME = "Sockenmonster@alttool"
+BOT_PASSWORD = "edetgvj8m2j27hlqih1fre9qbmih39f0"
 
 def query_webpage(webpage: str) -> str:
     """
@@ -35,7 +40,8 @@ def query_webpage(webpage: str) -> str:
 
 def random_webpage():
     # soup, url = query_webpage('https://en.wikipedia.org/wiki/Special:Random')
-    soup, url = query_webpage('https://en.wikipedia.org/wiki/Ritual')
+    # soup, url = query_webpage('https://en.wikipedia.org/wiki/Ritual')
+    # soup, url = query_webpage('https://en.wikipedia.org/wiki/User:Sockenmonster/sandbox')
     # soup, url = query_webpage('https://en.wikipedia.org/wiki/Djamin_Ginting')
     # soup, url = query_webpage('https://en.wikipedia.org/wiki/New_York_State_Route_118')
     # soup, url = query_webpage('https://en.wikipedia.org/wiki/Ty_Tabor')
@@ -45,19 +51,45 @@ def random_webpage():
     # soup, url = query_webpage('https://en.wikipedia.org/wiki/Criollas_de_Caguas')
     # soup, url = query_webpage('https://en.wikipedia.org/wiki/Jean_Paul')
 
-    title = url.split("/")[-1]
+    # title = url.split("/")[-1]
+    title = "User:Sockenmonster/sandbox"
     # TODO use nicer alternative: https://en.wikipedia.org/w/index.php?title=Google&action=raw
-    wikitext = requests.get(
-        f"https://en.wikipedia.org/w/api.php?action=query&prop=revisions&titles={title}&rvslots=*&rvprop=ids|timestamp|content&formatversion=2&format=json&curtimestamp=true")
-    images_raw = requests.get(
-        f"https://en.wikipedia.org/w/api.php?action=query&titles={title}&generator=images&gimlimit=10&prop=imageinfo&iiprop=url|dimensions|mime&format=json")
 
-    test = json.loads(wikitext.content.decode("utf-8"))["query"]
+    # TODO add image info in that api call. Images only returns titles but not urls, imageinfo does not return anything
+    wikitext_params = {
+        "action": "query",
+        "prop": "revisions",
+        "titles": title,
+        # "generator": "random",
+        # "grnnamespace": 0,
+        "rvslots": "*",
+        "rvprop": "ids|timestamp|content",
+        "formatversion": 2,
+        "curtimestamp": True,
+        "format": "json"
+    }
+    wikitext = requests.get(API_URL, params=wikitext_params)
+
     # TODO investigate why the images json response is sometimes empty, e.g. 2020_WNBL_season
     try:
         query = json.loads(wikitext.content.decode("utf-8"))["query"]
+        print(query)
         source = query["pages"][0]["revisions"][0]["slots"]["main"]["content"]
+
+
+        title = query["pages"][0]["title"]
+        image_params = {
+            "action": "query",
+            "titles": title,
+            "generator": "images",
+            "gimlimit": 50,
+            "prop": "imageinfo",
+            "iiprop": "url|dimensions|mime",
+            "format": "json"
+        }
+        images_raw = requests.get(API_URL, image_params)
         images = json.loads(images_raw.content.decode("utf-8"))["query"]["pages"]
+
         meta = {
             "title": title,
             "revid": query["pages"][0]["revisions"][0]["revid"],
@@ -66,10 +98,10 @@ def random_webpage():
 
     except KeyError:
         print("experienced Keyerror")
-        return soup, None, None, None
+        return title, None, None, None
 
 
-    return soup, source, images, meta
+    return title, source, images, meta
 
 
 def get_title(soup):
@@ -116,17 +148,55 @@ def get_alt_text(match):
         return alt_pos_match.group(1)
     return ""
 
-def query_token() -> str:
-    token_resp = requests.get(
-        f"https://en.wikipedia.org/w/api.php?action=query&meta=tokens&type=csrf&format=json")
-    token_resp = json.loads(token_resp.content.decode("utf-8"))
-    return token_resp["query"]["tokens"]["csrftoken"]
+def get_csrf_token(session, login_token) -> str:
+    csrf_params = {
+        "action": "login",
+        "lgname": "bot_user_name",
+        "lgpassword": "bot_password",
+        "lgtoken": login_token,
+        "format": "json"
+    }
+
+    resp = session.get(url=API_URL, params=csrf_params)
+    data = resp.json()
+
+    csrf_token = data['query']['tokens']['csrftoken']
+
+    return csrf_token
+
+def get_login_token(session):
+    """
+    taken from https://www.mediawiki.org/wiki/API:Edit
+    :param session:
+    :return:
+    """
+
+    # Step 1: GET request to fetch login token
+    login_params = {
+        "action": "query",
+        "meta": "tokens",
+        "type": "login",
+        "format": "json"
+    }
+
+    r = session.get(url=API_URL, params=login_params)
+    data = r.json()
+    login_token = data['query']['tokens']['logintoken']
+    return login_token
+
 def send_edit_update(wikitext: str, meta: dict):
+    session = requests.Session()
+
+    login_token = get_login_token(session)
+
+    csrf_token = get_csrf_token(session, login_token)
+
     today = datetime.now()
     iso_date = today.isoformat()
 
     wikitext_utf_8 = wikitext.encode('utf-8')
-    req = {
+    edit_params = {
+        "action": "edit",
         "title": meta["title"],
         "text": wikitext_utf_8,
         "summary": "add alt field info. Done via alt tool.",
@@ -139,15 +209,15 @@ def send_edit_update(wikitext: str, meta: dict):
         "md5": hashlib.md5(wikitext_utf_8).hexdigest(),
         "contentformat": "unknown/unknown",
         "contentmodel": "wikitext",
-        "token": query_token()
+        "token": csrf_token,
+        "format": "json",
     }
 
-    url = urllib.parse.urlencode(req)
-    print(url)
-    # resp = requests.post(f"https://en.wikipedia.org/w/api.php?api.php?action=edit&{url}")
-    resp = requests.post(f"https://test.wikipedia.org/w/api.php?action=edit&{url}")
+    resp = session.post(API_URL, data=edit_params)
     print(resp)
-    return False
+    resp_json = resp.json()
+    print(resp_json)
+    return resp.status_code == 200, resp_json
 
 def user_updates():
     set_env(title="Alt Text Tool")
@@ -155,14 +225,13 @@ def user_updates():
     finished = False
     while not finished:
 
-        soup, wikitext, images, meta = random_webpage()
+        title, wikitext, images, meta = random_webpage()
         if wikitext is None or images is None:
             continue
         # Ensure that random wikipage has images
         while len(images) == 0:
-            soup, wikitext, images = random_webpage()
+            title, wikitext, images = random_webpage()
 
-        title = get_title(soup)
         print("title: ", title)
         with use_scope('wikipage', clear=True):
             put_markdown(f'# Alt Text Update Tool: {title}')
