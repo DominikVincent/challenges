@@ -60,9 +60,9 @@ def random_webpage():
     wikitext_params = {
         "action": "query",
         "prop": "revisions",
-        "titles": title,
-        # "generator": "random",
-        # "grnnamespace": 0,
+        # "titles": title,
+        "generator": "random",
+        "grnnamespace": 0,
         "rvslots": "*",
         "rvprop": "ids|timestamp|content",
         "formatversion": 2,
@@ -230,8 +230,10 @@ def send_edit_update(wikitext: str, meta: dict):
         "token": csrf_token,
         "format": "json",
     }
-
+    # TODO use multipart/formdata
     resp = session.post(API_URL, data=edit_params)
+    print(resp.text)
+
     if not resp.ok:
         return False
     resp_json = resp.json()
