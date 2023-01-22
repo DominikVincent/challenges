@@ -7,6 +7,7 @@ def main():
 
     content = get_spielberichte_content(spielberichte_urls)
     print(content)
+
     
 if __name__ == "__main__":
     main()

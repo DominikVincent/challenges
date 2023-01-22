@@ -1,10 +1,14 @@
+from isi_bot.game_watcher.game import Spiel, Game
+
 import requests
 from bs4 import BeautifulSoup
 import re
 import os
 from pathlib import Path
 
-URL = "https://bettv.tischtennislive.de/?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielplan&L3P=1"
+URLS = ["https://bettv.tischtennislive.de/?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielplan&L3P=1",
+        "https://bettv.tischtennislive.de/?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielplan&L3P=2"
+        ]
 CACHE_FOLDER = Path("cache")
 
 def get_table_with_k_rows(soup, k):
@@ -35,19 +39,23 @@ def get_soup(url, offline):
     return soup
 
 def get_spielberichte_url(offline=True):
-    soup = get_soup(URL, offline)
+    all_urls = []
+    for url in URLS:
+        soup = get_soup(url, offline)
 
-    # get all table rows containing the olympischer sc 
-    rows = soup.find_all(lambda tag: any(td.text == 'Olympischer SC' for td in tag.find_all('td') 
-                        if (tag.name == 'tr' and tag.get('id') is not None and tag.get('id').startswith('Spiel'))))
-    
-    # find all links in the rows
-    spielberichte = [row.find_all("a", href=re.compile("Ergebnisse"))[0].get('href') for row in rows ]
-    print(len(spielberichte))
-    # get base url of URL
-    base_url = URL.split("/")[0] + "//" + URL.split("/")[2]
-    spielberichte = [base_url + spielbericht for spielbericht in spielberichte]
-    return spielberichte
+        # get all table rows containing the olympischer sc 
+        rows = soup.find_all(lambda tag: any(td.text == 'Olympischer SC' for td in tag.find_all('td') 
+                            if (tag.name == 'tr' and tag.get('id') is not None and tag.get('id').startswith('Spiel'))))
+        # filter out all rows only with Vorbericht
+        rows = [row for row in rows if len(row.find_all(text="Vorbericht")) == 0]
+
+        # find all links in the rows
+        spielberichte = [row.find_all("a", href=re.compile("Ergebnisse"))[0].get('href') for row in rows ]
+        # get base url of URL
+        base_url = url.split("/")[0] + "//" + url.split("/")[2]
+        spielberichte_urls = [base_url + spielbericht for spielbericht in spielberichte]
+        all_urls.extend(spielberichte_urls)
+    return all_urls
 
 def get_spielbericht_content(url, offline=True):
     spielbericht_content = {}
@@ -98,18 +106,17 @@ def get_spielbericht_content(url, offline=True):
         for i in range(5):
             if cols[4 + i].text == '\xa0':
                 continue
-            game_content[f"game_{i+1}_score_player_a"] = int(cols[4 + i].text.split(":")[0])
-            game_content[f"game_{i+1}_score_player_b"] = int(cols[4 + i].text.split(":")[1])
+            game_content[f"set_{i+1}_score_player_a"] = int(cols[4 + i].text.split(":")[0])
+            game_content[f"set_{i+1}_score_player_b"] = int(cols[4 + i].text.split(":")[1])
 
         game_content["sets_player_a"] = int(cols[10].text.split(":")[0])
         game_content["sets_player_b"] = int(cols[10].text.split(":")[1])
         game_content["score_player_a"] = int(cols[11].text.split(":")[0])
         game_content["score_player_b"] = int(cols[11].text.split(":")[1])
-        isi_game_content.append(game_content)
+        isi_game_content.append(Game(game_content))
 
     spielbericht_content["isi_games"] = isi_game_content
-    print(spielbericht_content)
-    return spielbericht_content
+    return Spiel(spielbericht_content)
 
 def get_spielberichte_content(url):
     spielberichte = []

@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TischtennisLive - Berliner Tisch-Tennis Verband e.V. - Damen, Bezirksklasse - Spielbericht</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="-1" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<!-- CMP BeTTV --->
+<link rel="stylesheet" href="https://cdn.consentmanager.mgr.consensu.org/delivery/cmp.min.css" />
+<script>window.gdprAppliesGlobally=true;if(!("cmp_id" in window)){window.cmp_id=20264}if(!("cmp_params" in window)){window.cmp_params=""}window.cmp_host="consentmanager.mgr.consensu.org";window.cmp_cdn="cdn.consentmanager.mgr.consensu.org";function cmp_getlang(j){if(typeof(j)!="boolean"){j=true}if(j&&typeof(cmp_getlang.usedlang)=="string"&&cmp_getlang.usedlang!==""){return cmp_getlang.usedlang}var g=["DE","EN","FR","IT","NO","DA","FI","ES","PT","RO","BG","ET","EL","GA","HR","LV","LT","MT","NL","PL","SV","SK","SL","CS","HU","RU","SR","ZH","TR","UK"];var c=[];var f=location.hash;var e=location.search;var a="languages" in navigator?navigator.languages:[];if(f.indexOf("cmplang=")!=-1){c.push(f.substr(f.indexOf("cmplang=")+8,2))}else{if(e.indexOf("cmplang=")!=-1){c.push(e.substr(e.indexOf("cmplang=")+8,2))}else{if("cmp_setlang" in window&&window.cmp_setlang!=""){c.push(window.cmp_setlang.toUpperCase())}else{if(a.length>0){for(var d=0;d<a.length;d++){c.push(a[d])}}}}}if("language" in navigator){c.push(navigator.language)}if("userLanguage" in navigator){c.push(navigator.userLanguage)}var h="";for(var d=0;d<c.length;d++){var b=c[d].toUpperCase();if(b.indexOf("-")!=-1){b=b.substr(0,2)}if(g.indexOf(b)!=-1){h=b;break}}if(h==""&&typeof(cmp_getlang.defaultlang)=="string"&&cmp_getlang.defaultlang!==""){return cmp_getlang.defaultlang}else{if(h==""){h="EN"}}h=h.toUpperCase();return h}(function(){var a="";var c="_en";if("cmp_getlang" in window){a=window.cmp_getlang().toLowerCase();c="_"+a}var d=("cmp_ref" in window)?window.cmp_ref:location.href;var b=document.createElement("script");b.src="https://"+window.cmp_host+"/delivery/cmp.php?id="+window.cmp_id+"&h="+encodeURIComponent(d)+"&"+window.cmp_params+(document.cookie.length>0?"&__cmpfcc=1":"")+"&l="+a+"&o="+(new Date()).getTime();b.type="text/javascript";b.setAttribute("data-cmp-ab","1");b.async=true;if(document.body){document.body.appendChild(b)}else{if(document.currentScript){document.currentScript.parentElement.appendChild(b)}else{document.write(b.outerHTML)}}var b=document.createElement("script");b.src="https://"+window.cmp_cdn+"/delivery/cmp"+c+".min.js";b.type="text/javascript";b.setAttribute("data-cmp-ab","1");b.async=true;if(document.body){document.body.appendChild(b)}else{if(document.currentScript){document.currentScript.parentElement.appendChild(b)}else{document.write(b.outerHTML)}}window.cmp_addFrame=function(f){if(!window.frames[f]){if(document.body){var e=document.createElement("iframe");e.style.cssText="display:none";e.name=f;document.body.appendChild(e)}else{window.setTimeout('window.cmp_addFrame("'+f+'")',10)}}};window.cmp_rc=function(l){var e=document.cookie;var j="";var g=0;while(e!=""&&g<100){g++;while(e.substr(0,1)==" "){e=e.substr(1,e.length)}var k=e.substring(0,e.indexOf("="));if(e.indexOf(";")!=-1){var f=e.substring(e.indexOf("=")+1,e.indexOf(";"))}else{var f=e.substr(e.indexOf("=")+1,e.length)}if(l==k){j=f}var h=e.indexOf(";")+1;if(h==0){h=e.length}e=e.substring(h,e.length)}return(j)};window.cmp_stub=function(){var e=arguments;__cmapi.a=__cmapi.a||[];if(!e.length){return __cmapi.a}else{if(e[0]==="ping"){if(e[1]===2){e[2]({gdprApplies:gdprAppliesGlobally,cmpLoaded:false,cmpStatus:"stub",displayStatus:"hidden",apiVersion:"2.0",cmpId:31},true)}else{e[2]({gdprAppliesGlobally:gdprAppliesGlobally,cmpLoaded:false},true)}}else{if(e[0]==="getUSPData"){e[2]({version:1,uspString:window.cmp_rc("")},true)}else{if(e[0]==="getTCData"){__cmapi.a.push([].slice.apply(e))}else{if(e[0]==="addEventListener"){__cmapi.a.push([].slice.apply(e))}else{if(e.length==4&&e[3]===false){e[2]({},false)}else{__cmapi.a.push([].slice.apply(e))}}}}}}};window.cmp_msghandler=function(j){var f=typeof j.data==="string";try{var h=f?JSON.parse(j.data):j.data}catch(k){var h=null}if(typeof(h)==="object"&&h!==null&&"__cmpCall" in h){var g=h.__cmpCall;window.__cmp(g.command,g.parameter,function(l,i){var e={__cmpReturn:{returnValue:l,success:i,callId:g.callId}};j.source.postMessage(f?JSON.stringify(e):e,"*")})}if(typeof(h)==="object"&&h!==null&&"__cmapiCall" in h){var g=h.__cmapiCall;window.__cmapi(g.command,g.parameter,function(l,i){var e={__cmapiReturn:{returnValue:l,success:i,callId:g.callId}};j.source.postMessage(f?JSON.stringify(e):e,"*")})}if(typeof(h)==="object"&&h!==null&&"__uspapiCall" in h){var g=h.__uspapiCall;window.__uspapi(g.command,g.version,function(l,i){var e={__uspapiReturn:{returnValue:l,success:i,callId:g.callId}};j.source.postMessage(f?JSON.stringify(e):e,"*")})}if(typeof(h)==="object"&&h!==null&&"__tcfapiCall" in h){var g=h.__tcfapiCall;window.__tcfapi(g.command,g.version,function(l,i){var e={__tcfapiReturn:{returnValue:l,success:i,callId:g.callId}};j.source.postMessage(f?JSON.stringify(e):e,"*")},g.parameter)}};window.cmp_setStub=function(e){if(!(e in window)||(typeof(window[e])!=="function"&&typeof(window[e])!=="object"&&(typeof(window[e])==="undefined"||window[e]!==null))){window[e]=window.cmp_stub;window[e].msgHandler=window.cmp_msghandler;if(window.addEventListener){window.addEventListener("message",window.cmp_msghandler,false)}else{window.attachEvent("onmessage",window.cmp_msghandler)}}};window.cmp_addFrame("__cmapiLocator");window.cmp_addFrame("__cmpLocator");window.cmp_addFrame("__uspapiLocator");window.cmp_addFrame("__tcfapiLocator");window.cmp_setStub("__cmapi");window.cmp_setStub("__cmp");window.cmp_setStub("__tcfapi");window.cmp_setStub("__uspapi")})();</script><link rel="shortcut icon" href="/Resource/favicon/96.ico" />
+<link type="text/css" href="/Resource/css/JQuery_Standard_BeTTV/JQuery.css" rel="stylesheet" media="screen" />
+<link type="text/css" href="/Resource/css/Standard_Basic.css?timer=4" rel="stylesheet" media="screen" />
+<link type="text/css" href="/Resource/css/Standard_BeTTV_v2.css" rel="stylesheet" media="screen" />
+<link href="/Resource/css/GoogleFont_OpenSans.css" rel="stylesheet">
+<link type="text/css" href="/Resource/css/jquery.share.css" rel="stylesheet" media="screen" />
+<link type="text/css" href="/Resource/css/print.css" rel="stylesheet" media="print, embossed" />
+<link type="text/css" href="/Resource/css/tooltipster.css" rel="stylesheet"/>
+<script type="text/javascript" src="/Resource/js/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/Resource/js/jquery/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="/Resource/js/jquery/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="/Resource/js/jquery/jquery.share.js"></script>
+<script type="text/javascript" src="/Resource/js/jquery/jquery.tooltipster.min.js"></script>
+<link type="text/css" href="/Resource/css/TouchNavi.css" rel="stylesheet" />
+<script type="text/javascript" src="/Resource/js/jquery/doubletaptogo.js"></script>
+	<link rel="alternate" type="application/rss+xml" class="tooltip" title="RDF-Datei" href="/Export/RSS.aspx" />
+	<link rel="alternate" type="application/atom+xml" class="tooltip" title="Atom-Datei" href="/Export/RSS.aspx" />
+<script type='text/javascript'>window.ADNPM = window.ADNPM || {};ADNPM.cmd = ADNPM.cmd || [];</script>
+<script type='text/javascript'>ADNPM.pubAdUnits=[];</script>
+<script type='text/javascript' src='https://cdn.netpoint-media.de/1253539.js' async='async'></script>
+<script> $(document).ready(function() { $('.tooltip').tooltipster({ maxWidth: 500, contentAsHTML: true }); });  </script>
+</head>
+<body><img src="/Resource/img/Design10/Fixed_Standard_BeTTV.jpg" class="bg">
+<div id="W4S_TopHeadline" class="Design10_LeftAbsAd" style="top:110px;width:1002px;height:119px; background:White; -moz-box-shadow: 0 0 20px black; -webkit-box-shadow: 0 0 20px black; box-shadow: 0 0 20px black;"><div style="position:absolute;left:0px;top:8px; width:100%; text-align:right; "><div style="text-align:right; margin-right:200px;"><a href="http://butterfly.tt/" target="_blank"><img src="/Documents/Advertisement/397/hl.png" alt=""/></a></div></div>
+<div style="position:absolute;left:15px;top:22px;"><a href="http://www.bettv.de" target="_blank" class="tooltip" title="Hier geht es zu der Verbands-Homepage"><img src="/Documents/Logo/bttv.png" width="150px" alt="" /></a></div>
+<div class="WelcomeText" style="position:absolute;left:170px;top:10px; padding:5px;padding-left:10px;padding-right:20px; color:#333333;">Berliner Tisch-Tennis Verband e.V.</div>
+<div style="position:absolute;left:850px;top:10px;padding:5px; color:#333333;" align="center" class="CONTENTTEXT"><a href="http://www.Web4Sport.de" style="color:#333333;font-size:16px" class="tooltip" title="Hier geht es zu Web4Sport">TischtennisLive</a><br/>Online Sportverwaltung</div>
+<div style="margin : 0px;padding : 0px;position:absolute;left:180px;top:60px"><form action="default.aspx?L1=Public" method="post"><button type="submit" class="HeadlineButton HeadlineButtonActive" style="width:115px;">Ergebnisdienst</button></form></div><div style="margin : 0px;padding : 0px;position:absolute;left:305px;top:60px;"><form action="default.aspx?L1=MeinBereich" method="post"><button type="submit" class="HeadlineButton " style="height:22px; width:115px;" id="dialog_LogIn_MeinBereich" onclick="document.LogInForm.action ='default.aspx?L1=MeinBereich&LogIn=true';">Mein Bereich</button></form></div><div style="margin : 0px;padding : 0px;position:absolute;left:430px;top:60px;"><form action="default.aspx?L1=Verwaltung" method="post"><button type="submit" class="HeadlineButton " style="height:22px; width:115px;"  id="dialog_LogIn_Verwaltung" onclick="document.LogInForm.action ='default.aspx?L1=Verwaltung&LogIn=true';">Verwaltung</button></form></div>
+      <script type="text/javascript">
+			$(function(){
+				$('#dialog_LogIn_MeinBereich').click(function() {
+				    $('#dialog').dialog('open');
+				    return false;
+				});
+				$('#dialog_LogIn_Verwaltung').click(function() {
+				    $('#dialog').dialog('open');
+				    return false;
+				});
+			});
+		</script>
+</div>
+<div id="W4S_Navigation" class="Design10_LeftAbsAd" style="top:245px;width:185px;"><br/><div style="background-image:url(/Resource/img/Trans.png); width:100%;" class="AddBlackShadow"><div style="padding:5px; padding-left:10px; color:#444444; background-color:white; border: 0px; " class="ui-widget-header">Allgemein</div><div style="padding:3px; border: 1px solid silver;"><div style="margin-left:15px;" class="CONTENTTEXT"><a href="?L1=Public"><img src="/Resource/img/Home.gif" width="11px" height="11px" border="0px" alt="" /> Startseite</a></div><div style="margin-left:15px;" class="CONTENTTEXT"><a href="?L1=Public&amp;L2=News"><img src="/Resource/img/Start_News.gif" width="11px" height="11px" border="0px" alt="" /> Verbands-News</a></div><div style="margin-left:15px;" class="CONTENTTEXT"><a href="?L1=Public&amp;L2=Termine"><img src="/Resource/img/ButtonIcon_Datum.gif" width="11px" height="11px" border="0px" alt="" /> Verbands-Termine</a></div><div style="margin-left:15px;" class="CONTENTTEXT"><a href="?L1=Public&amp;L2=Satzung"><img src="/Resource/img/Icon_RTF_Small.gif" width="11px" height="11px" border="0px" alt="" /> Dokumente</a></div><div style="margin-left:15px;" class="CONTENTTEXT"><a href="?L1=Public&amp;L2=Links"><img src="/Resource/img/Start_link.gif" width="11px" height="11px" border="0px" alt="" /> Links</a></div><div style="margin-left:15px;" class="CONTENTTEXT"><a href="?L1=Public&amp;L2=Forum"><img src="/Resource/img/Start_Forum.gif" width="11px" height="11px" border="0px" alt="" /> Forum</a></div><div style="margin-left:15px;" class="CONTENTTEXT"><a href="?L1=Public&amp;L2=Suche"><img src="/Resource/img/magnifying-glass.gif" width="11px" height="11px" border="0px" alt="" /> Suchen & finden</a></div><div style="margin-left:15px;" class="CONTENTTEXT"><a href="?L1=Public&amp;L2=AndererVerband"><img src="/Resource/img/Start_Andere.gif" width="11px" height="11px" border="0px" alt="" /> Andere Verbände</a></div><div style="margin-left:15px;" class="CONTENTTEXT"><a href="?L1=Public&amp;L2=Archiv"><img src="/Resource/img/Start_Archiv.gif" width="11px" height="11px" border="0px" alt="" /> Statistik-Archiv</a></div></div></div>
+<br/><div style="background-image:url(/Resource/img/Trans.png); width:100%;" class="AddBlackShadow"><div style="padding:5px; padding-left:10px;  color:#444444; background-color:white; border: 0px;" class="ui-widget-header">Spielbetrieb 2022/23</div><div style="padding:3px; border: 1px solid silver;"><div style="margin-left:15px;" class="CONTENTTEXTTOP"><a href="?L1=Ergebnisse&L2=TTStaffeln&Gruppe=795">Damen</a></div><div style="margin-left:15px;" class="CONTENTTEXT"><a href="?L1=Ergebnisse&L2=TTStaffeln&Gruppe=795&L3=SpielUebersicht&Saison=2022"><img src="/Resource/img/Navi_Icon_96_2.gif" width="11px" height="11px" border="0px" alt="" /> Übersicht</a></div><div style="margin-left:15px;" class="CONTENTTEXT"><a href="?L1=Ergebnisse&amp;L2=TTStaffeln&amp;L2P=17024"><img src="/Resource/img/Navi_Icon_96.gif" width="11px" height="11px" border="0px" alt="" /> Verbandsliga</a></div><div style="margin-left:15px;" class="CONTENTTEXT"><a href="?L1=Ergebnisse&amp;L2=TTStaffeln&amp;L2P=17025"><img src="/Resource/img/Navi_Icon_96.gif" width="11px" height="11px" border="0px" alt="" /> Bezirksliga</a></div><div style="margin-left:1px;" class="CONTENTTEXT"><img src="/Resource/img/Arrow_Green.gif" width="11px" height="11px" border="0px" alt="" /> <a href="?L1=Ergebnisse&amp;L2=TTStaffeln&amp;L2P=17141"><img src="/Resource/img/Navi_Icon_96.gif" width="11px" height="11px" border="0px" alt="" /> Bezirksklasse</a></div><div style="margin-left:15px;" class="CONTENTTEXT"><a href="?L1=Ergebnisse&amp;L2=TTStaffeln&amp;L2P=17142"><img src="/Resource/img/Navi_Icon_96.gif" width="11px" height="11px" border="0px" alt="" /> Kreisklasse</a></div><div style="margin-left:15px;" class="CONTENTTEXTTOP"><a href="?L1=Ergebnisse&L2=TTStaffeln&Gruppe=1142">Herren </a></div><div style="margin-left:15px;" class="CONTENTTEXTTOP"><a href="?L1=Ergebnisse&L2=TTStaffeln&Gruppe=1143">Herren (Kreisklassen)</a></div><div style="margin-left:15px;" class="CONTENTTEXTTOP"><a href="?L1=Ergebnisse&L2=TTStaffeln&Gruppe=898">Seniorinnen</a></div><div style="margin-left:15px;" class="CONTENTTEXTTOP"><a href="?L1=Ergebnisse&L2=TTStaffeln&Gruppe=796">Senioren</a></div><div style="margin-left:15px;" class="CONTENTTEXTTOP"><a href="?L1=Ergebnisse&L2=TTStaffeln&Gruppe=918">Freizeitliga</a></div><div style="margin-left:15px;" class="CONTENTTEXTTOP"><a href="?L1=Ergebnisse&L2=TTStaffeln&Gruppe=1140">Mädchen [J19]</a></div><div style="margin-left:15px;" class="CONTENTTEXTTOP"><a href="?L1=Ergebnisse&L2=TTStaffeln&Gruppe=915">Schülerinnen [J15]</a></div><div style="margin-left:15px;" class="CONTENTTEXTTOP"><a href="?L1=Ergebnisse&L2=TTStaffeln&Gruppe=901">Jungen [J19] (VR)</a></div><div style="margin-left:15px;" class="CONTENTTEXTTOP"><a href="?L1=Ergebnisse&L2=TTStaffeln&Gruppe=919">Jungen [J19] (RR)</a></div><div style="margin-left:15px;" class="CONTENTTEXTTOP"><a href="?L1=Ergebnisse&L2=TTStaffeln&Gruppe=798">Schüler A [J15] (VR)</a></div><div style="margin-left:15px;" class="CONTENTTEXTTOP"><a href="?L1=Ergebnisse&L2=TTStaffeln&Gruppe=920">Schüler A [J15] (RR)</a></div><div style="margin-left:15px;" class="CONTENTTEXTTOP"><a href="?L1=Ergebnisse&L2=TTStaffeln&Gruppe=799">Schüler B [J13] (VR)</a></div><div style="margin-left:15px;" class="CONTENTTEXTTOP"><a href="?L1=Ergebnisse&L2=TTStaffeln&Gruppe=921">Schüler B [J13] (RR)</a></div><div style="margin-left:15px;" class="CONTENTTEXTTOP"><a href="?L1=Ergebnisse&L2=TTStaffeln&Gruppe=1077">Schüler C [J11]</a></div><div style="margin-left:15px;" class="CONTENTTEXTTOP"><a href="?L1=Ergebnisse&L2=TTStaffeln&Gruppe=964">Pokal</a></div><div style="margin-left:15px;" class="CONTENTTEXTTOP"><a href="?L1=Ergebnisse&L2=TTStaffeln&Gruppe=1032">Relegationen</a></div></div></div><br/><div style="background-image:url(/Resource/img/Trans.png); width:100%;" class="AddBlackShadow"><div class="NaviFrame" style="padding:5px; padding-left:10px; color:#444444; background-color:white; border: 0px;" class="ui-widget-header">Service</div><div style="padding:3px; border: 1px solid silver;"><div style="margin-left:15px;" class="CONTENTTEXT"><a href="?L1=Public&L2=LogIn" id="dialog_link_PN"><img src="/Resource/img/ButtonIcon_Spieler.gif" width="11px" height="11px" border="0px" alt="" /> Anmelden</a></div><div style="margin-left:15px;" class="CONTENTTEXT"><a href="?L1=Public&L2=Register" id="register_dialog_link_PN"><img src="/Resource/img/Icon_User.gif" width="11px" height="11px" border="0px" alt="" /> Registrieren</a></div><div style="margin-left:15px;" class="CONTENTTEXT"><a href="?L1=Public&L2=Darstellung"><img src="/Resource/img/Desktop.png" width="11px" height="11px" border="0px" alt="" /> Seitendarstellung</a></div><div style="margin-left:15px;" class="CONTENTTEXT"><a href="?L1=Public&L2=Funktionaere"><img src="/Resource/img/Start_Kontakt.gif" width="11px" height="11px" border="0px" alt="" /> Funktionäre</a></div><div style="margin-left:15px;" class="CONTENTTEXT"><a href="?L1=Public&L2=KontaktPartner"><img src="/Resource/img/Start_Kontakt.gif" width="11px" height="11px" border="0px" alt="" /> Ansprechpartner</a></div></div></div>
+<br/><div align="center">
+<a href="http://berlin.butterfly.tt/" target="_blank"><img src="/Documents/Advertisement/397/navi.jpg" style="max-width:180px" alt="" /></a>
+</div>
+</div>
+
+
+<div id="Design10_LeftMainAd" class="Design10_LeftMainAd" style="top:259px;width:785px;">
+
+
+<div style=" border: 1px solid #777777; min-height:500px; background-image:url(/Resource/img/Trans.png); padding:10px; -moz-box-shadow: 0 0 20px black; -webkit-box-shadow: 0 0 20px black; box-shadow: 0 0 20px black; width:100%;">
+ <table class="ui-widget-header PageHeadline" width="100%"><tr>
+     <td style="width:5px"></td>
+<td style="width:30px"><img src="/Resource/img/WettBewerbHeadline_Liga.gif" height="22" width="22" class="tooltip" title="Regulärer Spielbetrieb"></td>
+     <td>Damen, Bezirksklasse</td>
+     <td align="center">2022/23</td>
+     <td style="max-width:20%; text-align: right;">
+     <a href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielbericht&L3P=812935&Action=AddFav"><img src="/Resource/img/PageHeadline_Fav.gif" width="22px" height="22px" style="border:0px" class="tooltip" title="Diese Seite zu den Favoriten hinzufügen" alt="Diese Seite zu den Favoriten hinzufügen" /></a>
+     <a href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielbericht&L3P=812935&Print=true" target="_blank"><img src="/Resource/img/PageHeadline_Print.gif" width="22px" height="22px" style="border:0px" class="tooltip" title="Diese Seite drucken" alt="Diese Seite drucken" /></a>
+     </td>
+ </tr></table>
+ <noscript>
+ <table><tr>
+     <td align="center" class="ui-widget-header PageSubHeadline" style="width:114px;"><a href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141">Startseite</a></td>
+     <td align="center" class="ui-widget-header PageSubHeadline" style="width:114px"><a href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Tabelle">Tabellen</a></td>
+     <td align="center" class="ui-widget-header PageSubHeadline" style="width:114px"><a href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielplan">Spielplan</a></td>
+     <td align="center" class="ui-widget-header PageSubHeadline" style="width:144px"><a href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Rangliste&L4=Einzel">Rangliste Einzel</a></td>
+     <td align="center" class="ui-widget-header PageSubHeadline" style="width:144px"><a href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Rangliste&L4=Doppel">Rangliste Doppel</a></td>
+     <td align="center" class="ui-widget-header PageSubHeadline" style="width:114px"><a href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Export">Export</a></td>
+ </tr></table>
+ <br />
+ </noscript>
+
+<NAV id="navStaffel" class="navrow" role="navigation" style="top:-20px;">
+<UL class="clearfix">
+<LI style="width:12%"><A aria-haspopup="true" href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141" >Übersicht</A>
+<UL style="width:180px">
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141" >Startseite</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Uebersicht&L4=News" >News und Termine</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Uebersicht&L4=Uebersicht" >Übersicht</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Uebersicht&L4=AllgemeinStatistik" >Allgemeine Ligastatistiken</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Uebersicht&L4=Spielsystem" >Spielsystem</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Uebersicht&L4=Listen&L4P=Aufstellung" >Aufstellungsübersicht</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Uebersicht&L4=Anschrift" >Anschriften</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Uebersicht&L4=Photo" >Team-Photos</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Uebersicht&L4=Listen&L4P=Jugend" >Jugendspieler</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Uebersicht&L4=Listen&L4P=Ersatz" >Ersatzspieler</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Uebersicht&L4=Listen&L4P=SPV" >Sperrvermerke</A></LI>
+</UL>
+</LI>
+<LI style="width:12%"><A aria-haspopup="true" href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Tabelle" >Tabelle</A>
+<UL style="width:180px">
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Tabelle" >Aktuelle Tabelle</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Tabelle&Runde=1" >Tabelle - Vorrunde</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Tabelle&Runde=2" >Tabelle - Rückrunde</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Tabelle&HA=1" >Tabelle - Heimspiele</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Tabelle&HA=2" >Tabelle - Auswärtsspiele</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Tabelle&L4=Presse" >Presse-Tabelle</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Tabelle&L4=Mini" >Mini-Tabelle</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Tabelle&L4=Fieber" >Fieberkurve</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Tabelle&L4=PK" >Paarkreuztabellen</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Tabelle&L4=Calc" >Tabellen-Rechner</A></LI>
+</UL>
+</LI>
+<LI style="width:14%"><A aria-haspopup="true" href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielplan&L3p=2" >Spielplan</A>
+<UL style="width:200px">
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielplan&L3P=1" >Spielplan - Vorrunde</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielplan&L3P=2" >Spielplan - Rückrunde</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielplan&L3P=-1" >Offene Ergebnisse</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielplan&L4=Matrix" >Spielplan-Matrix</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielplan&L4=Geschrieben" >Kommentare und Spielberichte</A></LI>
+</UL>
+</LI>
+<LI style="width:18%"><A aria-haspopup="true" href="#" >Mannschaften</A>
+<UL style="width:250px">
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Mannschaften&L3P=107676" ><span>ASV Berlin e.V. 3</span></A></LI>
+<LI style="width:250px"><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Mannschaften&L3P=107442" ><span>BSV Akademie der Wissenschaften e.V</span></A></LI>
+<LI style="width:250px"><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Mannschaften&L3P=107648" ><span>Füchse Berlin-Reinickendorf e.V. 4</span></A></LI>
+<LI style="width:250px"><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Mannschaften&L3P=107564" ><span>Olympischer Sport-Club Berlin e.V.</span></A></LI>
+<LI style="width:250px"><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Mannschaften&L3P=107099" ><span>SV Bau-Union Berlin e.V.</span></A></LI>
+<LI style="width:250px"><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Mannschaften&L3P=107216" ><span>SV Lichtenberg 47 e.V. 2</span></A></LI>
+<LI style="width:250px"><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Mannschaften&L3P=107588" ><span>TSC Berlin 1893 e.V.</span></A></LI>
+<LI style="width:250px"><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Mannschaften&L3P=108476" ><span>TSV Marienfelde 1890 e.V.</span></A></LI>
+<LI style="width:250px"><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Mannschaften&L3P=107591" ><span>TTC Berlin-Neukölln e.V. 7</span></A></LI>
+<LI style="width:250px"><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Mannschaften&L3P=107158" ><span>TTV 1990 Friedrichsfelde e.V. 2</span></A></LI>
+</UL>
+</LI>
+<LI style="width:15%"><A aria-haspopup="true" href="#" >Ranglisten</A>
+<UL style="width:200px">
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Rangliste&L4=Einzel&L4P=1" >Einzel - Rangliste Vorrunde</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Rangliste&L4=Einzel&L4P=2" >Einzel - Rangliste Rückrunde</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Rangliste&L4=Einzel&L4P=0" >Einzel - Rangliste Gesamt</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Rangliste&L4=Gesamt&L4P=1" >Einzel - Gesamtliste Vorrunde</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Rangliste&L4=Gesamt&L4P=2" >Einzel - Gesamtliste Rückrunde</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Rangliste&L4=Gesamt&L4P=0" >Einzel - Gesamtliste Gesamt</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Rangliste&L4=LivePZ&L4P=1" >LivePZ - Rangliste Vorrunde</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Rangliste&L4=LivePZ&L4P=2" >LivePZ - Rangliste Rückrunde</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Rangliste&L4=LivePZChart" >LivePZ - Entwicklungskurven</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Rangliste&L4=Doppel&L4P=1" >Doppel - Rangliste Vorrunde</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Rangliste&L4=Doppel&L4P=2" >Doppel - Rangliste Rückrunde</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Rangliste&L4=Doppel&L4P=0" >Doppel - Rangliste Gesamt</A></LI>
+</UL>
+</LI>
+<LI style="width:18%"><A aria-haspopup="true" href="#" >Servicefunktionen</A>
+<UL style="width:180px">
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Newsletter" >Newsletter und Info-Mail</A></LI>
+<LI ><A href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=SMS" >SMS Ergebnismeldung</A></LI>
+</UL>
+</LI>
+<LI style="width:11%"><A aria-haspopup="true" href="?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Export" >Export</A></LI>
+</UL></NAV><br/>
+<SCRIPT>
+	$( function() { $('#navStaffel li:has(ul)').doubleTapToGo(); });
+</SCRIPT>
+<br/>
+<div align="center">     
+<table class="ui-widget-header PageSubHeadline" style="width:100%; max-width:650px"><tr>    <td style="width:5px"></td>    <td style="text-align:left">Spielvorbericht 38</td><td style="text-align:right"></td></tr></table><br/><table style="width:100%; max-width:650px; text-align:left; margin:0px; padding:0px;" cellpadding="0" cellspacing="0"><tr><td style="margin:0px; padding:3px;" class="ui-widget-header">Spielinformation</td></tr><tr style="background-color:White"><td><table width="100%"><tr>  <td width="150px" class="ui-widget-header">Spielnummer</td>  <td>38</td></tr><tr>  <td class="ui-widget-header">Spielzeit</td>  <td>03.03.2023, 19:00</td></tr><tr>  <td class="ui-widget-header">Heimteam</td>  <td> <a href="default.aspx?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Mannschaften&L3P=107564">Olympischer SC</a></td></tr><tr>  <td class="ui-widget-header">Gastteam</td>  <td> <a href="default.aspx?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Mannschaften&L3P=107158">TTV Friedrichsfelde II</a></td></tr><tr>  <td class="ui-widget-header">Spielort</td>  <td>Berlin (Schöneberg)</td></tr></table></td></tr></table><br /><table style="width:100%; max-width:650px; text-align:left; margin:0px; padding:0px;" cellpadding="0" cellspacing="0"><tr><td style="margin:0px; padding:3px;" class="ui-widget-header">Spielergebnis melden</td></tr><tr style="background-color:White"><td><table width="100%" cellpadding="5"><tr><td align="center" class="SmallInfoText">Das Spiel findet in der Zukunft statt und kann noch nicht gemeldet werden.</td></tr></table></td></tr></table><br/><table style="width:100%; max-width:650px; text-align:left; margin:0px; padding:0px;" cellpadding="0" cellspacing="0"><tr><td style="margin:0px; padding:3px;" class="ui-widget-header">Live Spielbericht</td></tr><tr style="background-color:White"><td><table width="100%" cellpadding="5"><tr>  <td align="center"><span class="tooltip" title="Der Live-Bericht kann maximal 14 Tage vor dem Spiel begonnen werden" style="font-weight:bold;color:gray"><img src="/Resource/img/LiveIcon.png" /> Live-Spielbericht vorbereiten</span></td>  <td align="center"><img src="/Resource/img/Birne.gif" /> <a href="?L1=Public&L2=Tools&L3=LiveBericht"> Was ist Live Spielbericht?</a></td></tr></table></td></tr></table><br/><table style="width:100%; max-width:650px; text-align:left; margin:0px; padding:0px;" cellpadding="0" cellspacing="0"><tr><td style="margin:0px; padding:3px;" class="ui-widget-header">Weitere Aktionen</td></tr><tr style="background-color:White"><td><table width="100%" cellpadding="5" style="background-color:#E9E9E9;"><tr>  <td align="center"><img src="/Resource/img/Spielbericht_Kom_Icon.gif" /> <a href="default.aspx?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielbericht&L3P=812935&Action=Kommentar" id="dialog_LogIn_Kommentar" onclick="document.LogInForm.action ='default.aspx?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielbericht&L3P=812935&Action=Kommentar&LogIn=true';">Kommentar schreiben</a></td>  <td align="center"><img src="/Resource/img/Spielbericht_Verlegung.gif" /> <a href="default.aspx?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielbericht&L3P=812935&Action=Verlegen" id="dialog_LogIn_Verlegen" onclick="document.LogInForm.action ='default.aspx?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielbericht&L3P=812935&Action=Verlegen&LogIn=true';">Spielverlegung beantragen</a></td>  <td align="center">  <a class="tooltip" title="Vordruck erstellen" id="dialog_Vordruck_Open" href="/export/default.aspx?SportArt=96&Format=PDF&Area=Spielbericht&SpielID=812935" onclick="return false;">  <img src="/Resource/img/Icon_PDF_Small.gif" style="width:16px;height:16px" border="0" /><img src="/Resource/img/Icon_RTF_Small.gif" style="width:16px;height:16px" border="0" />  Vordruck</a></td>  <td align="center"><img src="/Resource/img/iCalendar_Small.gif" /> <a href="/export/Tischtennis/iCal.aspx?Typ=Spiel&ID=812935">iCalendar-Datei</a></td></tr></table></td></tr></table><div id="dialog_Vordruck" title="Vordruck" style="display:none;" align="center"><br/><br/>
+Bitte warten, das Formular wird geladen<br/><br/><br/><br/><img src="Resource/img/Ajax_Load_Big.gif"/></div>
+
+      <script type="text/javascript">
+			$(function(){
+				$('#dialog_LogIn_Kommentar').click(function() {
+				    $('#dialog').dialog('open');
+				    return false;
+				});
+			});
+		</script>
+
+      <script type="text/javascript">
+			$(function(){
+				$('#dialog_LogIn_Verlegen').click(function() {
+				    $('#dialog').dialog('open');
+				    return false;
+				});
+			});
+		</script>
+
+      <script type="text/javascript">
+			var LoadedVordruck=false;
+			$(function(){
+				$('#dialog_Vordruck').dialog({
+					autoOpen: false,
+					width: 700,
+					height: 550,
+					position: 'center',
+					modal: true,
+					resizable: false,
+					open: function(){
+					    if (LoadedVordruck==false) {
+					        $(this).load('Ajax/Tischtennis/Spielbericht_VordruckForm.aspx?SID=812935&timer=4711');
+					        LoadedVordruck=true;
+				        }
+				    }
+				});
+				$('#dialog_Vordruck_Open').click(function() {
+				    $('#dialog_Vordruck').dialog('open');
+				    return false;
+				});
+			});
+				function AjaxLoadSystem(SysElement) {
+				    val = SysElement[SysElement.selectedIndex].value;
+					$('#dialog_Vordruck').load('Ajax/Tischtennis/Spielbericht_VordruckForm.aspx?SID=812935&s_refSpielsystem='+val+'&timer=' + $.now());
+				    return false;
+				}
+		</script>
+<br/><table style="width:100%; max-width:650px; text-align:left; margin:0px; padding:0px;" cellpadding="0" cellspacing="0"><tr><td style="margin:0px; padding:3px;" class="ui-widget-header">Die letzten 5 Spiele der beiden Teams gegeneinander</td></tr><tr style="background-color:White"><td><table border="0" class="ContentText" style="width:100%" cellpadding="1" cellspacing="0"><thead><tr class="ui-widget-header">
+<td class="MidBigScreenCell">Wettbewerb</td><td width="30px" class="MidBigScreenCell">Tag</td><td>Datum</td><td/><td class="MidBigScreenCell">Zeit</td><td>Heimmannschaft</td><td>Gastmannschaft</td><td colspan="2">Ergebnis</td></tr></thead>
+<tr ID="Spiel1" style="cursor:pointer; height:18px;" class="ContentText" onmouseover="document.getElementById('Spiel1').className='CONTENTTABLETEXTHighlight'; this.style.cursor='pointer'" onmouseout="document.getElementById('Spiel1').className='ContentText';" onclick="document.location.href='/?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielbericht&L3P=812890'">
+<td class="MidBigScreenCell"> Bezirksklasse </td><td class="MidBigScreenCell">Fr</td><td>14.10.22</td><td></td><td class="MidBigScreenCell">19:15</td><td>TTV Friedrichsfelde 2</td><td>Olympischer SC</td><td align="center"><a href="/?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielbericht&L3P=812890">5:5</a></td><td><a href="/?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielbericht&L3P=812890">&nbsp;<img border="0" class="tooltip" class="tooltip" title="Spielbericht liegt vor" src="/Resource/img/Spielbericht_Icon.gif" height="13px"  alt="" /></a></td></tr>
+<tr ID="Spiel2" style="cursor:pointer; height:18px;" class="CONTENTTABLETEXT2ndLine" onmouseover="document.getElementById('Spiel2').className='CONTENTTABLETEXTHighlight'; this.style.cursor='pointer'" onmouseout="document.getElementById('Spiel2').className='CONTENTTABLETEXT2ndLine';" onclick="document.location.href='/?L1=Ergebnisse&L2=TTStaffeln&L2P=11288&L3=Spielbericht&L3P=595682'">
+<td class="MidBigScreenCell"> Kreisklasse </td><td class="MidBigScreenCell">Fr</td><td>01.03.19</td><td></td><td class="MidBigScreenCell">19:00</td><td>Olympischer SC</td><td>TTV Friedrichsfelde 2</td><td align="center"><a href="/?L1=Ergebnisse&L2=TTStaffeln&L2P=11288&L3=Spielbericht&L3P=595682">3:7</a></td><td><a href="/?L1=Ergebnisse&L2=TTStaffeln&L2P=11288&L3=Spielbericht&L3P=595682">&nbsp;<img border="0" class="tooltip" class="tooltip" title="Spielbericht liegt vor" src="/Resource/img/Spielbericht_Icon.gif" height="13px"  alt="" /></a></td></tr>
+<tr ID="Spiel3" style="cursor:pointer; height:18px;" class="ContentText" onmouseover="document.getElementById('Spiel3').className='CONTENTTABLETEXTHighlight'; this.style.cursor='pointer'" onmouseout="document.getElementById('Spiel3').className='ContentText';" onclick="document.location.href='/?L1=Ergebnisse&L2=TTStaffeln&L2P=11288&L3=Spielbericht&L3P=595667'">
+<td class="MidBigScreenCell"> Kreisklasse </td><td class="MidBigScreenCell">Fr</td><td>12.10.18</td><td></td><td class="MidBigScreenCell">19:15</td><td>TTV Friedrichsfelde 2</td><td>Olympischer SC</td><td align="center"><a href="/?L1=Ergebnisse&L2=TTStaffeln&L2P=11288&L3=Spielbericht&L3P=595667">7:3</a></td><td><a href="/?L1=Ergebnisse&L2=TTStaffeln&L2P=11288&L3=Spielbericht&L3P=595667">&nbsp;<img border="0" class="tooltip" class="tooltip" title="Spielbericht liegt vor" src="/Resource/img/Spielbericht_Icon.gif" height="13px"  alt="" /></a></td></tr>
+<tr ID="Spiel4" style="cursor:pointer; height:18px;" class="CONTENTTABLETEXT2ndLine" onmouseover="document.getElementById('Spiel4').className='CONTENTTABLETEXTHighlight'; this.style.cursor='pointer'" onmouseout="document.getElementById('Spiel4').className='CONTENTTABLETEXT2ndLine';" onclick="document.location.href='/?L1=Ergebnisse&L2=TTStaffeln&L2P=9397&L3=Spielbericht&L3P=523959'">
+<td class="MidBigScreenCell"> Kreisliga A </td><td class="MidBigScreenCell">Di</td><td>23.01.18</td><td></td><td class="MidBigScreenCell">19:00</td><td>Olympischer SC</td><td>TTV Friedrichsfelde 2</td><td align="center"><a href="/?L1=Ergebnisse&L2=TTStaffeln&L2P=9397&L3=Spielbericht&L3P=523959">8:0</a></td><td><a href="/?L1=Ergebnisse&L2=TTStaffeln&L2P=9397&L3=Spielbericht&L3P=523959">&nbsp;<img border="0" class="tooltip" class="tooltip" title="Spielbericht liegt vor" src="/Resource/img/Spielbericht_Icon.gif" height="13px"  alt="" /></a></td></tr>
+<tr ID="Spiel5" style="cursor:pointer; height:18px;" class="ContentText" onmouseover="document.getElementById('Spiel5').className='CONTENTTABLETEXTHighlight'; this.style.cursor='pointer'" onmouseout="document.getElementById('Spiel5').className='ContentText';" onclick="document.location.href='/?L1=Ergebnisse&L2=TTStaffeln&L2P=9397&L3=Spielbericht&L3P=523995'">
+<td class="MidBigScreenCell"> Kreisliga A </td><td class="MidBigScreenCell">Fr</td><td>15.09.17</td><td></td><td class="MidBigScreenCell">19:30</td><td>TTV Friedrichsfelde 2</td><td>Olympischer SC</td><td align="center"><a href="/?L1=Ergebnisse&L2=TTStaffeln&L2P=9397&L3=Spielbericht&L3P=523995">8:1</a></td><td><a href="/?L1=Ergebnisse&L2=TTStaffeln&L2P=9397&L3=Spielbericht&L3P=523995">&nbsp;<img border="0" class="tooltip" class="tooltip" title="Spielbericht liegt vor" src="/Resource/img/Spielbericht_Icon.gif" height="13px"  alt="" /></a></td></tr>
+</table></td></tr></table><br/><br /><br />
+<link href="/Resource/css/PiroBox.css" class="piro_style" media="screen" title="white" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Resource/js/jquery/pirobox.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$().piroBox({
+			my_speed: 400, //animation speed
+			bg_alpha: 0.3, //background opacity
+			slideShow : true, // true == slideshow on, false == slideshow off
+			slideSpeed : 4, //slideshow duration in seconds(3 to 6 Recommended)
+			close_all : '.piro_close,.piro_overlay'// add class .piro_overlay(with comma)if you want overlay click close piroBox
+	})
+;});
+</script>
+<table style="width:100%; max-width:650px; text-align:left; margin:0px; padding:0px;" cellpadding="0" cellspacing="0"><tr><td style="margin:0px; padding:3px;" class="ui-widget-header">Sportstätte Löcknitz-Grundschule</td></tr><tr style="background-color:White"><td><table width="100%" cellspacing="0" cellpadding="10"><tr><td width="170px" valign="top"><a class="pirobox_gall" class="tooltip" title="0066-10-06-12-2592x1944-2283-1600.jpg" rel="gallery" href="/Documents/Bilder/Sportstaette/115.jpg"><img src="/Documents/Bilder/Sportstaette/115s.jpg" width="150px"></a> </td><td width="*" valign="top"><table width="100%" border="0"><tr><td width="150px" class="ui-widget-header">Straße</td><td>Münchener Str. 34-37</td></tr><tr><td width="150px" class="ui-widget-header">PLZ/Ort</td><td>10779 Berlin (Schöneberg)</td></tr><tr><td class="ui-widget-header">Adresszusatz</td><td>U4/U7 bis "Bayrischer Platz"</td></tr></table></td></tr></table></td></tr></table><br/><br/>
+<script type="text/javascript" src="/Resource/js/OpenStreetMap/OpenLayers.js" ></script>
+<script type="text/javascript" src="/Resource/js/OpenStreetMap/OpenLayers_OSM.js" ></script>
+<script type="text/javascript" src="/Resource/js/OpenStreetMap/OpenStreetMap.js" ></script>
+<script type="text/javascript">  $(document).ready(function() {     drawmap('Münchener Str. 34-37<br/>10779 Berlin (Schöneberg)', 13.34238, 52.48969, 16);	 });
+	</script>
+<table style="width:100%; max-width:650px; text-align:left; margin:0px; padding:0px;" cellpadding="0" cellspacing="0"><tr><td style="margin:0px; padding:3px;" class="ui-widget-header">Geografische Karte von OpenStreetMap</td></tr><tr style="background-color:White"><td><div id="map" style="width:100%; max-width:650px; height:500px" ></div>
+</td></tr></table><br/><table style="wodth:100%; max-width:650px" style="border:1px"><tr><td style="width:33%"><table style="width:95%; text-align:left; margin:0px; padding:0px;" cellpadding="0" cellspacing="0"><tr><td style="margin:0px; padding:3px;" class="ui-widget-header">OpenStreetMap</td></tr><tr style="background-color:White"><td><div style="width:100%" align="center"><a href="https://www.openstreetmap.org/search?query=M%C3%BCnchener%20Str.%2034-37%2010779%20Berlin%20(Sch%C3%B6neberg)" target="_blank"><img src="/Resource/img/OpenStreetMap.png" style="height:50px; padding:10px"></a></div>
+</td></tr></table></td><td align="center" style="width:33%"><table style="width:95%; text-align:left; margin:0px; padding:0px;" cellpadding="0" cellspacing="0"><tr><td style="margin:0px; padding:3px;" class="ui-widget-header">HERE WeGo</td></tr><tr style="background-color:White"><td><div style="width:100%" align="center"><a href="https://wego.here.com/search/M%C3%BCnchener%20Str.%2034-37%2010779%20Berlin%20(Sch%C3%B6neberg)" target="_blank"><img src="/Resource/img/Icon_Here.png" style="height:50px; padding:10px"></a></div>
+</td></tr></table></td><td align="right" style="width:33%"><table style="width:95%; text-align:left; margin:0px; padding:0px;" cellpadding="0" cellspacing="0"><tr><td style="margin:0px; padding:3px;" class="ui-widget-header">Google Maps</td></tr><tr style="background-color:White"><td><div style="width:100%" align="center"><a href="http://maps.google.com/maps?q=M%C3%BCnchener%20Str.%2034-37%2010779%20Berlin%20(Sch%C3%B6neberg)" target="_blank"><img src="/Resource/img/google-maps.png" style="height:50px; padding:10px"></a></div>
+</td></tr></table></td></tr></table>
+
+
+
+ 
+</div>
+
+
+
+</div>
+
+<div style="position:relative;left:0px;top:0px;width:800px;height:25px;padding-left:0px;padding-right:0px;padding-top:3px;">
+<table border="0" style="color:white;" class="CONTENTTEXT" width="100%"><tr>
+   <td><a href="#" id="dialog_link" class="CONTENTTEXT" style="color:white;">Anmelden</a>
+    oder <a href="?L1=Public&L2=Register" class="CONTENTTEXT" style="color:white;">Neu registrieren</a></td>
+   <script type="text/javascript" language="JavaScript">
+       $(document).ready(function() {
+           $('#SocialDiv').share({
+               networks: ['email', 'facebook', 'googleplus', 'twitter', 'pinterest', 'linkedin'],
+               urlToShare: 'https://bettv.tischtennislive.de/default.aspx?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielbericht&L3P=812935',
+               title: 'TischtennisLive: > Ergebnisdienst > Bezirksklasse'
+           });
+       });
+   </script>
+   <td align="right" valign="top" id="SocialDiv"></td>
+<td align="right" class="ContentText" style="color:white;"><a href="?L1=Public&L2=Impressum" style="color:white;">Impressum</a>
+<img src="Resource/img/pixel.gif" height="1" width="20" alt="" />
+<a href="?L1=Public&L2=Datenschutz" style="color:white;">Datenschutz</a>
+<img src="Resource/img/pixel.gif" height="1" width="20" alt="" />
+<a href="?L1=Public&L2=KontaktPartner" style="color:white;">Kontakt</a>
+</td></tr></table>
+</div><br/>
+<br/><div class="SmallInfoText" style="position:absolute;left:10px;top:-18px;color:White">Sie sind hier: > Ergebnisdienst > Bezirksklasse  > Spielbericht </div>
+
+
+<div style="height:150px"></div>
+
+
+</div><script type="text/javascript">
+			$(function(){
+             <!-- login -->
+				$('#dialog').dialog({
+					autoOpen: false,
+					width: 'auto',
+					height: 'auto',
+					position: 'center',
+					modal: true,
+					open: function(){
+					  $("#username").focus();
+					}
+				});
+				$('#dialog_link').click(function(){
+					$('#dialog').dialog('open');
+					return false;
+				});
+				$('#dialog_link_PN').click(function(){
+					$('#dialog').dialog('open');
+					return false;
+				});
+			});
+		</script>
+<!-- dialog window content -->
+<div id="dialog" title="Benutzeranmeldung" style="display:none">
+		<form id="LogInForm" name="LogInForm" action="Default.aspx?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielbericht&L3P=812935&LogIn=true" method="post">
+<br/><table width="340px" border="0" cellpadding="5" class="CONTENTTEXT"><tr>  <td>Benutzerkennung<br/><span class="SmallInfoText">Email-Adresse<br/><br/></span></td>  <td><input type="email" id="username" name="username" class="ui-state-default ui-corner-all" style="width:180px" maxlength="50" value="" /><br/>      <span class="SmallInfoText"><input type="checkbox" value="1" name="b_Cookie" >Benutzerkennung merken</span></td></tr><tr>  <td>Passwort</td>  <td><input type="password" name="password" id="password" class="ui-state-default ui-corner-all" style="width:180px" maxlength="50" /></td></tr><tr>  <td/><td><button type="submit" class="ui-state-default ui-corner-all" style="width:100px">Anmelden</button></td></tr></table></form><br/><div style="width:340px; text-align:left;"><img src="/Resource/img/Arrow_Yellow.gif" width="11px" height="11px" border="0px" alt="" /> <a href="?L1=Public&L2=Register">Neuen Account beantragen</a><br/><img src="/Resource/img/Arrow_Yellow.gif" width="11px" height="11px" border="0px" alt="" /> <a href="?L1=Public&L2=PWReset">Passwort vergessen?</a><br/></div>
+</div>
+<div class="Design10_LeftAbsAd" style="top:0px;"><!--Banner Tag // Website: BETTV.TISCHTENNISLIVE.DE // Adslot: bet_rotation_728x90 (6615890) -->
+<div id='npm_6615890'></div>
+<script>ADNPM.cmd.push(function(){ADNPM.loadAd(6615890)});</script></div>
+<div class="Design10_Advertise" style="top:260px;">
+<!--Banner Tag // Website: BETTV.TISCHTENNISLIVE.DE // Adslot: bet_rotation_160x600 (6615891) -->
+<div id='npm_6615891'></div>
+<script>ADNPM.cmd.push(function(){ADNPM.loadAd(6615891)});</script>
+</div>
+<script type='text/javascript'>ADNPM.loadAll();</script>
+</body></html>
