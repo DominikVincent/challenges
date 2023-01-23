@@ -8,7 +8,7 @@
             "name": "Isi Bot",
             "type": "python",
             "request": "launch",
-            "program": "${cwd}/test_isi_bot.py",
+            "program": "${cwd}/run_isi_bot.py",
             "console": "integratedTerminal",
             "justMyCode": true,
         }
