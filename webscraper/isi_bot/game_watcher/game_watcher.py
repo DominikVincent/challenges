@@ -2,6 +2,7 @@ from isi_bot.game_watcher.game import Spiel, Game, SpielInfo
 
 import requests
 from bs4 import BeautifulSoup
+
 import re
 import os
 from pathlib import Path
@@ -10,12 +11,15 @@ from datetime import datetime
 URLS = ["https://bettv.tischtennislive.de/?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielplan&L3P=1",
         "https://bettv.tischtennislive.de/?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielplan&L3P=2"
         ]
+
 CACHE_FOLDER = Path("cache")
+
 
 def get_table_with_k_rows(soup, k):
     tables = soup.find_all('table')
 
-    tables = [table  for table in tables if len(table.find("tr").find_all(['td','th'])) == k]
+    tables = [table for table in tables if len(
+        table.find("tr").find_all(['td', 'th'])) == k]
 
     return tables
 
@@ -39,6 +43,7 @@ def get_soup(url, offline):
         soup = BeautifulSoup(page.content, "html.parser")
     return soup
 
+
 def get_all_spiel_rows(text="Olympischer SC", offline=True):
     """
     Returns a list of (url, row) tuples where row is a bs4 element. Row needs to be Spiel row contain text.
@@ -47,14 +52,15 @@ def get_all_spiel_rows(text="Olympischer SC", offline=True):
     for url in URLS:
         soup = get_soup(url, offline)
 
-        # get all table rows containing the olympischer sc 
-        rows = soup.find_all(lambda tag: any(td.text == text for td in tag.find_all('td') 
-                            if (tag.name == 'tr' and tag.get('id') is not None and tag.get('id').startswith('Spiel'))))
+        # get all table rows containing the olympischer sc
+        rows = soup.find_all(lambda tag: any(td.text == text for td in tag.find_all('td')
+                                             if (tag.name == 'tr' and tag.get('id') is not None and tag.get('id').startswith('Spiel'))))
 
         rows = [(url, row) for row in rows]
         # filter out all rows only with Vorbericht
         all_rows.extend(rows)
     return all_rows
+
 
 def get_spielberichte_url(offline=True):
     def get_base_url(url):
@@ -62,20 +68,24 @@ def get_spielberichte_url(offline=True):
 
     rows = get_all_spiel_rows(text="Olympischer SC", offline=offline)
     # filter out all rows only with Vorbericht
-    rows = [(url, row) for url, row in rows if len(row.find_all(text="Vorbericht")) == 0]
+    rows = [(url, row) for url, row in rows if len(
+        row.find_all(text="Vorbericht")) == 0]
 
     # find all links in the rows
-    spielberichte = [(url, row.find_all("a", href=re.compile("Ergebnisse"))[0].get('href')) for url, row in rows ]
+    spielberichte = [(url, row.find_all("a", href=re.compile("Ergebnisse"))[
+                      0].get('href')) for url, row in rows]
     # get base url of URL
-    spielberichte_urls = [get_base_url(url) + spielbericht for url, spielbericht in spielberichte]
+    spielberichte_urls = [get_base_url(
+        url) + spielbericht for url, spielbericht in spielberichte]
     return spielberichte_urls
+
 
 def get_spielbericht_content(url, offline=True):
     spielbericht_content = {}
     soup = get_soup(url, offline=offline)
     # extract team names
-    rows = soup.find_all(lambda tag: any(td.text == 'A' for td in tag.find_all('td', recursive=False) 
-                    if (tag.name == 'tr')))
+    rows = soup.find_all(lambda tag: any(td.text == 'A' for td in tag.find_all('td', recursive=False)
+                                         if (tag.name == 'tr')))
 
     if len(rows) != 1:
         print("Error: more than one team A found")
@@ -99,15 +109,16 @@ def get_spielbericht_content(url, offline=True):
     spielbericht_content["balls_a"] = int(balls.split(":")[0])
     spielbericht_content["balls_b"] = int(balls.split(":")[1])
     # TODO extract date
-    date_row = soup.find_all(lambda tag: any(td.text == 'Datum' for td in tag.find_all('td', recursive=False) 
-                    if (tag.name == 'tr')))
+    date_row = soup.find_all(lambda tag: any(td.text == 'Datum' for td in tag.find_all('td', recursive=False)
+                                             if (tag.name == 'tr')))
     date_row = date_row[0].find_next_sibling()
-    spielbericht_content["date"] = date_row.findChildren("td", recursive=False)[1].text
+    spielbericht_content["date"] = date_row.findChildren("td", recursive=False)[
+        1].text
     # TODO extract all games Isi played in
     game_table = get_table_with_k_rows(soup, 12)[0]
     # get all rows of the table which have an input field with name Isi
     isi_games = game_table.find_all(lambda tag: any(td.find("input", {"value": "Ritz, Isabel"}) for td in tag.find_all('td', recursive=False)
-                    if (tag.name == 'tr')))
+                                                    if (tag.name == 'tr')))
     isi_game_content = []
     for game in isi_games:
         game_content = {}
@@ -119,8 +130,10 @@ def get_spielbericht_content(url, offline=True):
         for i in range(5):
             if cols[4 + i].text == '\xa0':
                 continue
-            game_content[f"set_{i+1}_score_player_a"] = int(cols[4 + i].text.split(":")[0])
-            game_content[f"set_{i+1}_score_player_b"] = int(cols[4 + i].text.split(":")[1])
+            game_content[f"set_{i+1}_score_player_a"] = int(
+                cols[4 + i].text.split(":")[0])
+            game_content[f"set_{i+1}_score_player_b"] = int(
+                cols[4 + i].text.split(":")[1])
 
         game_content["sets_player_a"] = int(cols[10].text.split(":")[0])
         game_content["sets_player_b"] = int(cols[10].text.split(":")[1])
@@ -131,12 +144,14 @@ def get_spielbericht_content(url, offline=True):
     spielbericht_content["isi_games"] = isi_game_content
     return Spiel(spielbericht_content)
 
+
 def get_spielberichte_content(url):
     spielberichte = []
     for url in url:
         spielberichte.append(get_spielbericht_content(url))
 
     return spielberichte
+
 
 def get_all_spiele(text="Olympischer SC", offline=True):
     spiele_rows = get_all_spiel_rows(text=text, offline=offline)

@@ -134,15 +134,6 @@ heartbeat/straight_green2.mp4
 .gitignore
 heartbeat/straight_red.mp4
 heartbeat/straight_white.mp4
-webscraper/cache/https:__bettv.tischtennislive.de_?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielbericht&L3P=812864
-webscraper/cache/https:__bettv.tischtennislive.de_?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielbericht&L3P=812868
-webscraper/cache/https:__bettv.tischtennislive.de_?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielbericht&L3P=812877
-webscraper/cache/https:__bettv.tischtennislive.de_?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielbericht&L3P=812880
-webscraper/cache/https:__bettv.tischtennislive.de_?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielbericht&L3P=812885
-webscraper/cache/https:__bettv.tischtennislive.de_?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielbericht&L3P=812890
-webscraper/cache/https:__bettv.tischtennislive.de_?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielbericht&L3P=812894
-webscraper/cache/https:__bettv.tischtennislive.de_?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielbericht&L3P=812899
-webscraper/cache/https:__bettv.tischtennislive.de_?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielbericht&L3P=812907
-webscraper/cache/https:__bettv.tischtennislive.de_?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielplan&L3P=1
+webscraper/cache/https*
 webscraper/data/config.yaml
 webscraper/data/config.json
