@@ -7,6 +7,7 @@ import re
 import os
 from pathlib import Path
 from datetime import datetime
+import logging
 
 URLS = ["https://bettv.tischtennislive.de/?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielplan&L3P=1",
         "https://bettv.tischtennislive.de/?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielplan&L3P=2"
@@ -69,7 +70,7 @@ def get_spielberichte_url(offline=True):
     rows = get_all_spiel_rows(text="Olympischer SC", offline=offline)
     # filter out all rows only with Vorbericht
     rows = [(url, row) for url, row in rows if len(
-        row.find_all(text="Vorbericht")) == 0]
+        row.find_all(text=["Vorbericht", "Melden"])) == 0]
 
     # find all links in the rows
     spielberichte = [(url, row.find_all("a", href=re.compile("Ergebnisse"))[
@@ -88,7 +89,7 @@ def get_spielbericht_content(url, offline=True):
                                          if (tag.name == 'tr')))
 
     if len(rows) != 1:
-        print("Error: more than one team A found")
+        logging.error("Did not find exactly one row with team names. Found: %d",  len(rows))
         return
     row = rows[0]
     # get all children of the row
