@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${cwd}/test_isi_bot.py",
             "console": "integratedTerminal",
-            "justMyCode": true
+            "justMyCode": true,
         }
     ]
 }
