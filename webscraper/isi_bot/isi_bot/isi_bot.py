@@ -197,7 +197,7 @@ class State():
     def _save(self):
         logging.info("Saving state to %s", self.save_path)
         with open(self.save_path, "w") as f:
-            json.dump(self.state, f)
+            json.dump(self.state, f, indent=4)
 
     def get_chat_ids(self):
         return [int(chat_id) for chat_id in self.state["chat_ids"].keys()]
