@@ -1,10 +1,11 @@
-from isi_bot.game_watcher.game import Spiel, Game
+from isi_bot.game_watcher.game import Spiel, Game, SpielInfo
 
 import requests
 from bs4 import BeautifulSoup
 import re
 import os
 from pathlib import Path
+from datetime import datetime
 
 URLS = ["https://bettv.tischtennislive.de/?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielplan&L3P=1",
         "https://bettv.tischtennislive.de/?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielplan&L3P=2"
@@ -38,24 +39,36 @@ def get_soup(url, offline):
         soup = BeautifulSoup(page.content, "html.parser")
     return soup
 
-def get_spielberichte_url(offline=True):
-    all_urls = []
+def get_all_spiel_rows(text="Olympischer SC", offline=True):
+    """
+    Returns a list of (url, row) tuples where row is a bs4 element. Row needs to be Spiel row contain text.
+    """
+    all_rows = []
     for url in URLS:
         soup = get_soup(url, offline)
 
         # get all table rows containing the olympischer sc 
-        rows = soup.find_all(lambda tag: any(td.text == 'Olympischer SC' for td in tag.find_all('td') 
+        rows = soup.find_all(lambda tag: any(td.text == text for td in tag.find_all('td') 
                             if (tag.name == 'tr' and tag.get('id') is not None and tag.get('id').startswith('Spiel'))))
-        # filter out all rows only with Vorbericht
-        rows = [row for row in rows if len(row.find_all(text="Vorbericht")) == 0]
 
-        # find all links in the rows
-        spielberichte = [row.find_all("a", href=re.compile("Ergebnisse"))[0].get('href') for row in rows ]
-        # get base url of URL
-        base_url = url.split("/")[0] + "//" + url.split("/")[2]
-        spielberichte_urls = [base_url + spielbericht for spielbericht in spielberichte]
-        all_urls.extend(spielberichte_urls)
-    return all_urls
+        rows = [(url, row) for row in rows]
+        # filter out all rows only with Vorbericht
+        all_rows.extend(rows)
+    return all_rows
+
+def get_spielberichte_url(offline=True):
+    def get_base_url(url):
+        return url.split("/")[0] + "//" + url.split("/")[2]
+
+    rows = get_all_spiel_rows(text="Olympischer SC", offline=offline)
+    # filter out all rows only with Vorbericht
+    rows = [(url, row) for url, row in rows if len(row.find_all(text="Vorbericht")) == 0]
+
+    # find all links in the rows
+    spielberichte = [(url, row.find_all("a", href=re.compile("Ergebnisse"))[0].get('href')) for url, row in rows ]
+    # get base url of URL
+    spielberichte_urls = [get_base_url(url) + spielbericht for url, spielbericht in spielberichte]
+    return spielberichte_urls
 
 def get_spielbericht_content(url, offline=True):
     spielbericht_content = {}
@@ -124,3 +137,26 @@ def get_spielberichte_content(url):
         spielberichte.append(get_spielbericht_content(url))
 
     return spielberichte
+
+def get_all_spiele(text="Olympischer SC", offline=True):
+    spiele_rows = get_all_spiel_rows(text=text, offline=offline)
+    spiele = []
+    for _, row in spiele_rows:
+        spiel = {}
+        cols = row.find_all("td", recursive=True)
+        spiel["kw"] = cols[1].text
+        spiel["weekday"] = cols[3].text
+        spiel["date"] = cols[4].text
+        spiel["time"] = cols[6].text
+        datetime_str = spiel["date"] + " " + spiel["time"]
+        # convert time to datetime
+        datetime_object = datetime.strptime(datetime_str, "%d.%m.%y %H:%M")
+        spiel["datetime"] = datetime_object
+        spiel["team_a"] = cols[7].text
+        spiel["team_b"] = cols[8].text
+        spiel["score"] = cols[9].find("a").text
+
+        spiele.append(SpielInfo(spiel))
+
+    spiele.sort()
+    return spiele

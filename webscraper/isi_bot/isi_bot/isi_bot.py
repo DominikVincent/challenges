@@ -2,9 +2,10 @@ import logging
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler
 from isi_bot.isi_bot.utils import read_config
-from isi_bot.game_watcher.game_watcher import get_spielberichte_url, get_spielberichte_content
+from isi_bot.game_watcher.game_watcher import get_spielberichte_url, get_spielberichte_content, get_all_spiele
 import time
 from telegram.error import RetryAfter, TimedOut
+from datetime import datetime
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -22,6 +23,9 @@ class Isi_bot():
 
         all_games_handler = CommandHandler('all_games', self.all_games)
         self.application.add_handler(all_games_handler)
+
+        next_games_handler = CommandHandler('next_games', self.next_games)
+        self.application.add_handler(next_games_handler)
 
 
     def run(self):
@@ -60,3 +64,15 @@ class Isi_bot():
                 time.sleep(e.retry_after + 4)
                 tries += 1
         return False
+
+    async def next_games(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        all_games = get_all_spiele()
+        # filter out all games after today
+        now = datetime.now()
+        next_games = [game for game in all_games if game["datetime"] > now]
+        
+        # for the next 4 games
+        next_games = next_games[:self.config["next_games_count"]]
+        header_message = f"Die nächsten {self.config['next_games_count']} Spiele:\n"
+        message = "\n".join([str(game) for game in next_games])
+        await self.send_message(context.bot, update.effective_chat.id, header_message+message)

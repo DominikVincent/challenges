@@ -123,3 +123,24 @@ class Game():
         set_description = "\n".join([f"Im {i+1}. Satz hat {self.get_set_winner(i+1)} {self.get_winning_player_set_score(i+1)}:{self.get_loosing_player_set_score(i+1)} gewonnen. " for i in range(self.get_loosing_player_sets() + self.get_winning_player_sets())])
 
         return opening_line + match_description + set_description
+
+class SpielInfo():
+    def __init__(self, spiel_info_dict):
+        self.spiel_info_dict = spiel_info_dict
+
+    def __getitem__(self, item):
+         return self.spiel_info_dict[item]
+
+    def __lt__(self, other):
+        return self.spiel_info_dict["datetime"] < other.spiel_info_dict["datetime"]
+    
+    def __gt__(self, other):
+        return self.spiel_info_dict["datetime"] > other.spiel_info_dict["datetime"]
+
+    def __repr__(self) -> str:
+        return self.spiel_info_dict.__repr__()
+    
+    def __str__(self) -> str:
+        spiel_info_str = f"Am {self.spiel_info_dict['weekday']} den {self.spiel_info_dict['date']} um {self.spiel_info_dict['time']} Uhr \
+spielt {self.spiel_info_dict['team_a']} gegen {self.spiel_info_dict['team_b']}."
+        return spiel_info_str
