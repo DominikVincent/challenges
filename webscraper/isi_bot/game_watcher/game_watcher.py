@@ -10,7 +10,9 @@ from datetime import datetime
 import logging
 
 URLS = ["https://bettv.tischtennislive.de/?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielplan&L3P=1",
-        "https://bettv.tischtennislive.de/?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielplan&L3P=2"
+        "https://bettv.tischtennislive.de/?L1=Ergebnisse&L2=TTStaffeln&L2P=17141&L3=Spielplan&L3P=2",
+        "https://bettv.tischtennislive.de/?L1=Ergebnisse&L2=TTStaffeln&L2P=17107&L3=Spielplan&L3P=1",
+        "https://bettv.tischtennislive.de/?L1=Ergebnisse&L2=TTStaffeln&L2P=17107&L3=Spielplan&L3P=2"
         ]
 
 CACHE_FOLDER = Path("cache")
@@ -54,7 +56,7 @@ def get_all_spiel_rows(text="Olympischer SC", offline=True):
         soup = get_soup(url, offline)
 
         # get all table rows containing the olympischer sc
-        rows = soup.find_all(lambda tag: any(td.text == text for td in tag.find_all('td')
+        rows = soup.find_all(lambda tag: any(text in td.text for td in tag.find_all('td')
                                              if (tag.name == 'tr' and tag.get('id') is not None and tag.get('id').startswith('Spiel'))))
 
         rows = [(url, row) for row in rows]
