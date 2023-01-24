@@ -137,3 +137,4 @@ heartbeat/straight_white.mp4
 webscraper/cache/https*
 webscraper/data/config.yaml
 webscraper/data/config.json
+webscraper/data/state.json
